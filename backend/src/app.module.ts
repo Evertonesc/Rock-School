@@ -7,6 +7,5 @@ import { UseCasesModule } from './use-cases/use-cases.module';
 @Module({
   imports: [AdaptersModule, DomainModule, InfraModule, UseCasesModule],
   controllers: [],
-  providers: [],
 })
 export class AppModule { }

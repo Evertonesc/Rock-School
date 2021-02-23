@@ -12,7 +12,7 @@
                 "${workspaceRoot}/node_modules/**/*.js",
                 "<node_internals>/**/*.js"
             ],
-            "program": "${workspaceFolder}/backend/dist/src/main.js"
+            "program": "${workspaceFolder}/backend/dist/main.js"
         },
         {
             "type": "node",

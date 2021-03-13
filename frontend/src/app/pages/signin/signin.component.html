@@ -1,8 +1,15 @@
 <h2>Rock School - Sign In</h2>
 
-<div>
-    <button routerLink="home">
-        Home
-    </button>
+<form [formGroup]="signinForm" (ngSubmit)="onSubmmit()">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name">
+    </div>
 
-</div>
+    <div>
+        <label for="address">Address</label>
+        <input id="address" type="text" formControlName="address">
+    </div>
+
+    <button class="button" type="submit">Purchase</button>
+</form>

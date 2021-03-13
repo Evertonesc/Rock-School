@@ -7,7 +7,7 @@ import { StudentDto } from "../dtos/studentDto";
 
 
 @Controller('v1/student')
-export class StudentController {
+export class SignUpController {
 
     constructor(@Inject('ICreateStudent') private createStudentUseCase: ICreateStudent) {
         //this.createStudentUseCase = createStudentUseCase;

@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { UseCasesModule } from 'src/use-cases/use-cases.module';
-import { StudentController } from './controllers/studentController';
+import { SignUpController } from './controllers/signupController';
 
 @Module({
-    controllers: [StudentController],
+    controllers: [SignUpController],
     imports: [UseCasesModule]
 })
 export class AdaptersModule { }

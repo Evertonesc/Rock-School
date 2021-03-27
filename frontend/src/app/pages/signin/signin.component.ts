@@ -12,21 +12,18 @@ import { SigninService } from './services/signin.service';
 
 export class SigninComponent implements OnInit {
 
-  constructor(private signinService: SigninService, private formBuilder: FormBuilder) { }
+  constructor(private signinService: SigninService,
+    private formBuilder: FormBuilder
+  ) { }
   signin = SigninFactory.createSigninForm();
 
-  ngOnInit(): void {
-    this.signin;
-  }
+  ngOnInit(): void { }
 
   signinForm = this.formBuilder.group({
-    name: [this.signin.name, Validators.required],
-    address: this.signin.address
+    username: [this.signin.username, Validators.required],
+    password: [this.signin.password, Validators.required]
   })
 
-  onSubmmit(): void {
-    const nameStudent = this.signinForm.get('name');
-    console.warn('Here is your info', this.signinForm.value);
-    this.signinForm.reset();
+  onSubmit(): void {
   }
 }

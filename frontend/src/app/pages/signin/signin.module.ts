@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SigninRoutingModule } from './signin-routing.module';
 import { SigninComponent } from './signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormField } from '@angular/material/form-field';
+import { AngularMaterialModule } from 'src/core/angular-material.module';
 
 
 @NgModule({
@@ -14,6 +14,7 @@ import { MatFormField } from '@angular/material/form-field';
     SigninRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularMaterialModule
   ]
 })
 export class SigninModule { }

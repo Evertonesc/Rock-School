@@ -19,6 +19,7 @@
             "type": "node",
             "request": "launch",
             "name": "Dev",
+            "smartStep": true,
             "skipFiles": [
                 "${workspaceRoot}/node_modules/**/*.js",
                 "<node_internals>/**/*.js"
@@ -29,6 +30,7 @@
             "type": "node",
             "request": "launch",
             "name": "Tests",
+            "smartStep": true,
             "program": "${workspaceFolder}/backend/node_modules/.bin/jest",
             "skipFiles": [
                 "${workspaceRoot}/backend/node_modules/**/*.js",

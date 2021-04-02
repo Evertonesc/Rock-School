@@ -11,5 +11,8 @@ export class SignupService {
 
   registerStudent(signupForm: FormGroup) {
     const signupDto = signupForm.value;
+
+    const response = this.http.post('localhost:3000/v1/student', JSON.stringify(signupDto));
+    const result = response;
   }
 }

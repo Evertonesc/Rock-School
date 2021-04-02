@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { instruments } from './models/components/instruments.select';
+import { SignUpDto } from './models/forms/signup.form';
 import { SignupService } from './services/signup.service';
 
 @Component({
@@ -9,21 +11,14 @@ import { SignupService } from './services/signup.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private signupService: SignupService) { }
+  constructor(private formBuilder: FormBuilder, private _signupService: SignupService) { }
 
   ngOnInit(): void { }
 
-  signupForm = this.formBuilder.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    birthDate: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required],
-  })
+  musicalInstruments = instruments;
+  signupForm = SignUpDto.create(this.formBuilder);
 
   onSubmit() {
-    this.signupService.registerStudent(this.signupForm);
-
+    this._signupService.registerStudent(this.signupForm);
   }
-
 }

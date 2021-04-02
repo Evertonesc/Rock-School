@@ -1,7 +1,8 @@
 export class StudentDto {
     public firstName: string;
     public lastName: string;
-    public email: string;
     public birthDate: Date;
-    public instrument: number;
+    public email: string;
+    public password: string;
+    public instrumentsArray: number[];
 }

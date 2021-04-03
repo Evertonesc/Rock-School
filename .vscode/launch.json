@@ -10,6 +10,10 @@
             "type": "pwa-chrome",
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}/frontend",
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/frontend/",
+                "!/node_modules/**"
+            ],
             "skipFiles": [
                 "${workspaceRoot}/frontend/node_modules/**/*.js",
                 "<node_internals>/**/*.js"
@@ -18,13 +22,36 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Debug Nest Framework",
+            "args": [
+                "${workspaceFolder}/backend/src/main.ts"
+            ],
+            "runtimeArgs": [
+                "--nolazy",
+                "-r",
+                "ts-node/register",
+                "-r",
+                "tsconfig-paths/register"
+            ],
+            "skipFiles": [
+                "${workspaceRoot}/backend/node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ],
+            "envFile": "${workspaceFolder}/backend/.env",
+            "cwd": "${workspaceRoot}/backend",
+            "console": "integratedTerminal",
+            "protocol": "inspector"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Dev",
             "smartStep": true,
             "skipFiles": [
-                "${workspaceRoot}/node_modules/**/*.js",
+                "${workspaceRoot}/backend/node_modules/**/*.js",
                 "<node_internals>/**/*.js"
             ],
-            "program": "${workspaceFolder}/backend/dist/main.js"
+            "program": "${workspaceFolder}/backend/dist/main.js",
         },
         {
             "type": "node",

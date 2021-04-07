@@ -10,7 +10,11 @@
     "target": "es2019",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": false,
+    "baseUrl": "src",
+    "rootDirs": ["src", "test"],
+    "paths": {
+      "@/test/*": ["./test/*"],
+      "@/*":["*"]
+    }
   }
 }

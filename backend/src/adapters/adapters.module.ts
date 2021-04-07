@@ -1,5 +1,5 @@
+import { UseCasesModule } from '@/use-cases/use-cases.module';
 import { Module } from '@nestjs/common';
-import { UseCasesModule } from 'src/use-cases/use-cases.module';
 import { SignUpController } from './controllers/signupController';
 
 @Module({

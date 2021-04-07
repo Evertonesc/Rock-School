@@ -1,8 +1,7 @@
-import { SequelizeFactory } from "src/infra/factory/sequelizeFactory";
+import { SequelizeFactory } from "@/infra/factory/sequelizeFactory";
 
 const dbConfig = require('./database');
 const sequelize = SequelizeFactory.connectPostgresClient(dbConfig);
-
 export class PostgresConnection {
 
     static sequelizeAuthentication() {

@@ -4,5 +4,5 @@ export class StudentDto {
     public birthDate: Date;
     public email: string;
     public password: string;
-    public instrumentsArray: number[];
+    public instrumentsArray: Array<number>;
 }

@@ -1,8 +1,8 @@
 import { Body, Inject, Post, Put } from "@nestjs/common";
 import { Controller } from "@nestjs/common";
-import { ICreateStudent } from "src/use-cases/interfaces/createStudent.interface";
-import { CreateStudentResponse } from "src/use-cases/types/createStudentResponse";
-import { StudentDto } from "../dtos/studentDto";
+import { StudentDto } from "@/adapters/dtos/studentDto";
+import { ICreateStudent } from "@/use-cases/interfaces/createStudent.interface";
+import { CreateStudentResponse } from "@/use-cases/types/createStudentResponse";
 
 
 @Controller('v1/student')

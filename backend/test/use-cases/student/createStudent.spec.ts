@@ -1,5 +1,5 @@
-import { UseCasesFactory } from "test/factories/useCaseFactory";
-import { StudentTestData } from "test/helpers/studentDtoTest";
+import { UseCasesFactory } from "../../factories/useCaseFactory";
+import { StudentTestData } from "../../helpers/studentDtoTest";
 
 describe('CreateStudentUseCase', () => {
     test('Create Student - Should create a student with success...', async () => {

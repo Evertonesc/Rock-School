@@ -1,12 +1,13 @@
-import { StudentDto } from "src/adapters/dtos/studentDto";
-import { CreateStudentError } from "../../../domain/errors/createStudentError";
-import { IEmail } from "src/domain/interfaces/valueObejcts/email.interface";
-import { IFullName } from "src/domain/interfaces/valueObejcts/fullName.interface";
-import { Email } from "../../../domain/valueObjects/email";
-import { ICreateStudent } from "src/use-cases/interfaces/createStudent.interface";
-import { CreateStudentResponse } from "src/use-cases/types/createStudentResponse";
-import { FullName } from "src/domain/valueObjects/fullName";
 import { Injectable } from "@nestjs/common";
+
+import { StudentDto } from "@/adapters/dtos/studentDto";
+import { CreateStudentError } from "@/domain/errors/createStudentError";
+import { IEmail } from "@/domain/interfaces/valueObejcts/email.interface";
+import { IFullName } from "@/domain/interfaces/valueObejcts/fullName.interface";
+import { Email } from "@/domain/valueObjects/email";
+import { FullName } from "@/domain/valueObjects/fullName";
+import { ICreateStudent } from "@/use-cases/interfaces/createStudent.interface";
+import { CreateStudentResponse } from "@/use-cases/types/createStudentResponse";
 
 @Injectable()
 export class CreateStudentUseCase implements ICreateStudent {

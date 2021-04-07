@@ -1,4 +1,4 @@
-import { IResult } from "src/domain/interfaces/validations/result.interface";
-import { IDomainReturn } from "src/domain/interfaces/valueObejcts/domainReturn.interface";
+import { IResult } from "@/domain/interfaces/validations/result.interface";
+import { IDomainReturn } from "@/domain/interfaces/valueObejcts/domainReturn.interface";
 
 export type CreateStudentResponse = IResult<IDomainReturn>;

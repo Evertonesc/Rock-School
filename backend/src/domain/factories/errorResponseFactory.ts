@@ -1,4 +1,4 @@
-import { CreateStudentResponse } from "src/use-cases/types/createStudentResponse";
+import { CreateStudentResponse } from "@/use-cases/types/createStudentResponse";
 import { CreateStudentError } from "../errors/createStudentError";
 
 export class ErrorResponseFactory {

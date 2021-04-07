@@ -1,4 +1,4 @@
-import { CreateStudentUseCase } from "src/use-cases/core/student/createStudentUseCase";
+import { CreateStudentUseCase } from "@/use-cases/core/student/createStudentUseCase";
 
 export class UseCasesFactory {
     static createStudentUseCase(): CreateStudentUseCase {

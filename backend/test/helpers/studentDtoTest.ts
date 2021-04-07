@@ -1,4 +1,4 @@
-import { StudentDto } from "src/adapters/dtos/studentDto";
+import { StudentDto } from "@/adapters/dtos/studentDto";
 
 export class StudentTestData {
 
@@ -7,8 +7,9 @@ export class StudentTestData {
             firstName: 'Sasuke',
             lastName: 'Uchiha',
             email: 'betrayer@akatsuki.com.br',
+            password: '123456',
             birthDate: new Date(1995, 6, 18),
-            instrument: 1,
+            instrumentsArray: [1],
         }
         return validStudentDto;
     }

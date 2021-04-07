@@ -1,5 +1,4 @@
-import { Injectable } from "@nestjs/common";
-import { StudentDto } from "src/adapters/dtos/studentDto";
+import { StudentDto } from "@/adapters/dtos/studentDto";
 import { CreateStudentResponse } from "../types/createStudentResponse";
 
 export interface ICreateStudent {

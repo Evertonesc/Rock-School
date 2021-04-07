@@ -1,10 +1,11 @@
-import { Student } from "src/domain/entities/student";
-import { Instruments } from "src/domain/enums/instruments";
-import { IStudent } from "src/domain/interfaces/entities/student.interface";
-import { IEmail } from "src/domain/interfaces/valueObejcts/email.interface";
-import { IFullName } from "src/domain/interfaces/valueObejcts/fullName.interface";
-import { Email } from "src/domain/valueObjects/email";
-import { FullName } from "src/domain/valueObjects/fullName";
+import { Student } from "@/domain/entities/student";
+import { Instruments } from "@/domain/enums/instruments";
+import { IStudent } from "@/domain/interfaces/entities/student.interface";
+import { IEmail } from "@/domain/interfaces/valueObejcts/email.interface";
+import { IFullName } from "@/domain/interfaces/valueObejcts/fullName.interface";
+import { Email } from "@/domain/valueObjects/email";
+import { FullName } from "@/domain/valueObjects/fullName";
+
 
 describe('Student Case', () => {
     test('Valid Email - Should return true...', () => {

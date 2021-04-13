@@ -1,4 +1,6 @@
-import { IFullName } from "../interfaces/valueObejcts/fullName.interface";
+import { ValidationResult } from "../core/interfaces/validations/validation-result";
+import { IValidationResult } from "../core/interfaces/validations/validation-result.interface";
+import { IFullName } from "../core/interfaces/valueObejcts/fullName.interface";
 
 export class FullName implements IFullName {
     readonly firstName: string;
@@ -14,20 +16,20 @@ export class FullName implements IFullName {
         return new FullName(firstName, lastName);
     }
 
-    validate(): boolean {
+    validate(): IValidationResult {
         const numberNameTest = /^[0-9]+$/;
         const studentFirstName = this.firstName;
         const studentLastName = this.lastName;
         if (!studentFirstName || !studentLastName)
-            return false;
+            return ValidationResult.create(false, 'The first name or last name cannot be empty ou null');
 
         if (studentFirstName.length <= 2 || studentLastName.length <= 2)
-            return false;
+            return ValidationResult.create(false, 'The name cannot have less than 2 characters');
 
         if (studentFirstName.match(numberNameTest) || studentLastName.match(numberNameTest))
-            return false;
+            return ValidationResult.create(false, 'The name cannot have numbers')
 
-        return true;
+        return ValidationResult.create(true);
     }
 
 }

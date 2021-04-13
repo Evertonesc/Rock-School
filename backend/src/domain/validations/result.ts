@@ -1,4 +1,4 @@
-import { IResult } from "../interfaces/validations/result.interface";
+import { IResult } from "../core/interfaces/validations/result.interface";
 
 export class Result<T> implements IResult<T>{
     public isSuccess: boolean;

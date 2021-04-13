@@ -1,8 +1,8 @@
-import { Student } from "@/domain/entities/student";
+import { Student } from "@/domain/core/entities/student";
 import { Instruments } from "@/domain/enums/instruments";
-import { IStudent } from "@/domain/interfaces/entities/student.interface";
-import { IEmail } from "@/domain/interfaces/valueObejcts/email.interface";
-import { IFullName } from "@/domain/interfaces/valueObejcts/fullName.interface";
+import { IStudent } from "@/domain/core/interfaces/entities/student.interface";
+import { IEmail } from "@/domain/core/interfaces/valueObejcts/email.interface";
+import { IFullName } from "@/domain/core/interfaces/valueObejcts/fullName.interface";
 import { Email } from "@/domain/valueObjects/email";
 import { FullName } from "@/domain/valueObjects/fullName";
 
@@ -10,7 +10,7 @@ import { FullName } from "@/domain/valueObjects/fullName";
 describe('Student Case', () => {
     test('Valid Email - Should return true...', () => {
         const email: IEmail = Email.create("evertonsouzaesc@gmail.com");
-        const emailValidation = email.validate();
+        const emailValidation = email.validate().isValid;
 
         expect(emailValidation).toBe(true);
     })
@@ -18,7 +18,7 @@ describe('Student Case', () => {
     test('Valid Fullname - Should return true...', () => {
         const name: IFullName = FullName.create('Everton', 'Costa');
 
-        const nameValidation: boolean = name.validate();
+        const nameValidation: boolean = name.validate().isValid;
 
         expect(nameValidation).toBe(true);
     })
@@ -31,9 +31,9 @@ describe('Student Case', () => {
 
         const student: IStudent = Student.create(studentName, studentEmail, studentBirthDate, studentInstrument);
 
-        const nameValidation: boolean = studentName.validate();
-        const emailValidation: boolean = studentEmail.validate();
-        const studentValidation: boolean = student.validate();
+        const nameValidation: boolean = studentName.validate().isValid;
+        const emailValidation: boolean = studentEmail.validate().isValid;
+        const studentValidation: boolean = student.validate().isValid;
 
         expect(nameValidation).toBe(true);
         expect(emailValidation).toBe(true);
@@ -42,7 +42,7 @@ describe('Student Case', () => {
 
     test('Invalid Email - Should return false...', () => {
         var email: IEmail = Email.create("evertondsfsdf.com.br");
-        const emailValidation = email.validate();
+        const emailValidation = email.validate().isValid;
 
         expect(emailValidation).toBe(false);
     })
@@ -52,9 +52,9 @@ describe('Student Case', () => {
         const invalidNameSecondCase: IFullName = FullName.create('E', 'df');
         const invalidNameThirdCase: IFullName = FullName.create('5451', '999');
 
-        const firstCaseValidation = invalidNameFirstCase.validate();
-        const secondCaseValidation = invalidNameSecondCase.validate();
-        const thirdCaseValidation = invalidNameThirdCase.validate();
+        const firstCaseValidation = invalidNameFirstCase.validate().isValid;
+        const secondCaseValidation = invalidNameSecondCase.validate().isValid;
+        const thirdCaseValidation = invalidNameThirdCase.validate().isValid;
 
         expect(firstCaseValidation).toBe(false);
         expect(secondCaseValidation).toBe(false);
@@ -69,9 +69,9 @@ describe('Student Case', () => {
 
         const student: IStudent = Student.create(studentName, studentEmail, studentBirthDate, studentInstrument);
 
-        const nameValidation: boolean = studentName.validate();
-        const emailValidation: boolean = studentEmail.validate();
-        const studentValidation: boolean = student.validate();
+        const nameValidation: boolean = studentName.validate().isValid;
+        const emailValidation: boolean = studentEmail.validate().isValid;
+        const studentValidation: boolean = student.validate().isValid;
 
         expect(nameValidation).toBe(false);
         expect(emailValidation).toBe(false);

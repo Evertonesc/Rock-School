@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { instruments } from './models/components/instruments.select';
+import { courses } from './models/components/instruments.select';
 import { SignUpDto } from './models/forms/signup.form';
 import { SignupService } from './services/signup.service';
 
@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  musicalInstruments = instruments;
+  studentCourses = courses;
   signupForm = SignUpDto.create(this.formBuilder);
 
   onSubmit() {

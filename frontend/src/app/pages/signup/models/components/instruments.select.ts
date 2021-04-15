@@ -1,9 +1,9 @@
-export interface IInstruments {
+export interface ICourses {
     value: number;
     viewValue: string
 }
 
-export const instruments: IInstruments[] = [
+export const courses: ICourses[] = [
     { value: 0, viewValue: 'Guitar' },
     { value: 1, viewValue: 'Bass' },
     { value: 2, viewValue: 'Drums' },

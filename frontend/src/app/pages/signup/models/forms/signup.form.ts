@@ -9,7 +9,7 @@ export class SignUpDto {
             birthDate: ['', Validators.required],
             email: ['', Validators.required],
             password: ['', Validators.required],
-            instrumentsArray: [null, Validators.required]
+            coursesArray: [null, Validators.required]
         })
     }
 }

@@ -23,7 +23,7 @@
             <mat-form-field appearance="fill">
                 <mat-label>Instruments</mat-label>
                 <mat-select formControlName="instrumentsArray" multiple>
-                    <mat-option *ngFor="let instruments of musicalInstruments" [value]="instruments.value">
+                    <mat-option *ngFor="let courses of studentCourses" [value]="courses.value">
                         {{instruments.viewValue}}
                     </mat-option>
                 </mat-select>

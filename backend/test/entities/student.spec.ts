@@ -1,8 +1,8 @@
 import { Student } from "@/domain/core/entities/student";
-import { Instruments } from "@/domain/enums/instruments";
 import { IStudent } from "@/domain/core/interfaces/entities/student.interface";
 import { IEmail } from "@/domain/core/interfaces/valueObejcts/email.interface";
 import { IFullName } from "@/domain/core/interfaces/valueObejcts/fullName.interface";
+import { Courses } from "@/domain/enums/courses";
 import { Email } from "@/domain/valueObjects/email";
 import { FullName } from "@/domain/valueObjects/fullName";
 
@@ -27,9 +27,9 @@ describe('Student Case', () => {
         const studentName: IFullName = FullName.create('Everton', 'Costa');
         const studentEmail: IEmail = Email.create('evertonsouzaesc@gmail.com');
         const studentBirthDate: Date = new Date(1995, 6, 18);
-        const studentInstrument: Instruments = Instruments.Guitar;
+        const studentCourse: Courses = Courses.Guitar;
 
-        const student: IStudent = Student.create(studentName, studentEmail, studentBirthDate, studentInstrument);
+        const student: IStudent = Student.create(studentName, studentEmail, studentBirthDate, studentCourse);
 
         const nameValidation: boolean = studentName.validate().isValid;
         const emailValidation: boolean = studentEmail.validate().isValid;
@@ -65,9 +65,9 @@ describe('Student Case', () => {
         const studentName: IFullName = FullName.create('Everton', null);
         const studentEmail: IEmail = Email.create('evertonsouzaes.co');
         const studentBirthDate: Date = new Date(1995, 6, 18);
-        const studentInstrument: Instruments = Instruments.Guitar;
+        const studentCourse: Courses = Courses.Guitar;
 
-        const student: IStudent = Student.create(studentName, studentEmail, studentBirthDate, studentInstrument);
+        const student: IStudent = Student.create(studentName, studentEmail, studentBirthDate, studentCourse);
 
         const nameValidation: boolean = studentName.validate().isValid;
         const emailValidation: boolean = studentEmail.validate().isValid;

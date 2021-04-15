@@ -28,7 +28,8 @@
     "request": "^2.88.2",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.3",
-    "sequelize-typescript": "^2.1.0"
+    "sequelize-typescript": "^2.1.0",
+    "uuidv4": "^6.2.7"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.5.1",

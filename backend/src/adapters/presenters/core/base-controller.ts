@@ -1,22 +1,28 @@
 import * as express from 'express';
 
 export abstract class BaseController {
-    protected abstract executeImpl(req: express.Request, res: express.Response): Promise<void | any>;
+    //protected abstract executeImpl(req: express.Request, res: express.Response): Promise<void | any>;
 
-    public async execute(req: express.Request, res: express.Response): Promise<void> {
-        try {
-            await this.executeImpl(req, res);
-        }
-        catch (err) {
-            console.log(`[BaseController]: Uncaught controller error`);
-            console.log(err);
-            this.fail(res, 'An unexpected error occurred');
-        }
-    }
+    // public async execute(req: express.Request, res: express.Response): Promise<void> {
+    //     try {
+    //         await this.executeImpl(req, res);
+    //     }
+    //     catch (err) {
+    //         console.log(`[BaseController]: Uncaught controller error`);
+    //         console.log(err);
+    //         this.fail(res, 'An unexpected error occurred');
+    //     }
+    // }
 
+    //protected response = express.response;
     public static jsonResponse(res: express.Response, code: number, message: string) {
         const codeResponse = res.status(code);
         return codeResponse.json({ message });
+    }
+
+    public static escJsonResponse(res: any, code: number, message: string) {
+        const codeResponse = code;
+        return JSON.stringify({ codeResponse, res, message });
     }
 
     public ok<T>(res: express.Response, dto?: T) {
@@ -52,5 +58,9 @@ export abstract class BaseController {
         return res.status(500).json({
             message: error.toString()
         })
+    }
+
+    public mockEscResponse(useCaseResponse: string, message: string) {
+        return BaseController.escJsonResponse(useCaseResponse, 200, message);
     }
 }

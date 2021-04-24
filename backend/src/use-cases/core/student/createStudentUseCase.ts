@@ -1,3 +1,4 @@
+import { String } from './../../../../../frontend/src/app/enums/typesEnums';
 import { Injectable } from "@nestjs/common";
 import { StudentDto } from "@/adapters/dtos/studentDto";
 import { IEmail } from "@/domain/core/interfaces/valueObejcts/email.interface";
@@ -16,13 +17,13 @@ export class CreateStudentUseCase implements ICreateStudent {
 
         const studentNameValidation = studentName.validate();
         if (studentNameValidation.isInvalid)
-            return ActionResult.create(false, studentNameValidation.message);
+            return ActionResult.createBadRequest(false, studentNameValidation.message);
 
         const studentEmail: IEmail = Email.create(studentDto.email);
         const emailValidation = studentEmail.validate();
         if (emailValidation.isInvalid)
-            return ActionResult.create(false, emailValidation.message);
+            return ActionResult.createBadRequest(false, emailValidation.message);
 
-        return ActionResult.create(true, 'Welcome to the Rock School!', studentDto);
+        return ActionResult.create(true, String.Empty, studentDto);
     }
 }

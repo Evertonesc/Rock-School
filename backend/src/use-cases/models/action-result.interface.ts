@@ -1,6 +1,6 @@
 export interface IActionResult<T> {
     readonly isSuccess: boolean;
     readonly isFailure: boolean;
-    readonly message: string;
+    readonly error?: string;
     readonly body: T
 }

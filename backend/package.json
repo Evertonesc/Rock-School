@@ -24,6 +24,7 @@
     "@nestjs/platform-express": "^7.5.1",
     "core-util-is": "^1.0.2",
     "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
     "reflect-metadata": "^0.1.13",
     "request": "^2.88.2",
     "rimraf": "^3.0.2",

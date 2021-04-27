@@ -1,34 +1,16 @@
 import * as express from 'express';
 
 export abstract class BaseController {
-    //protected abstract executeImpl(req: express.Request, res: express.Response): Promise<void | any>;
 
-    // public async execute(req: express.Request, res: express.Response): Promise<void> {
-    //     try {
-    //         await this.executeImpl(req, res);
-    //     }
-    //     catch (err) {
-    //         console.log(`[BaseController]: Uncaught controller error`);
-    //         console.log(err);
-    //         this.fail(res, 'An unexpected error occurred');
-    //     }
-    // }
-
-    //protected response = express.response;
-    public static jsonResponse(res: express.Response, code: number, message: string) {
+    public static jsonResponse<T>(res: express.Response, code: number, dto: T) {
         const codeResponse = res.status(code);
-        return codeResponse.json({ message });
-    }
-
-    public static escJsonResponse(res: any, code: number, message: string) {
-        const codeResponse = code;
-        return JSON.stringify({ codeResponse, res, message });
+        return codeResponse.json(dto);
     }
 
     public ok<T>(res: express.Response, dto?: T) {
         const typeResponse = res.type('application/json');
         if (!!dto)
-            return res.status(200).json(dto);
+            return res.status(201).json(dto);
 
         return res.sendStatus(200);
     }
@@ -37,8 +19,8 @@ export abstract class BaseController {
         return res.sendStatus(201);
     }
 
-    public clienteError(res: express.Response, message?: string) {
-        return BaseController.jsonResponse(res, 400, message ? message : 'Unauthorized');
+    public clientError<T>(res: express.Response, dto: T) {
+        return BaseController.jsonResponse(res, 400, dto ? dto : 'Unauthorized');
     }
 
     public forbidden(res: express.Response, message?: string) {
@@ -58,9 +40,5 @@ export abstract class BaseController {
         return res.status(500).json({
             message: error.toString()
         })
-    }
-
-    public mockEscResponse(useCaseResponse: string, message: string) {
-        return BaseController.escJsonResponse(useCaseResponse, 200, message);
     }
 }

@@ -1,4 +1,3 @@
-import { String } from './../../../../../frontend/src/app/enums/typesEnums';
 import { Injectable } from "@nestjs/common";
 import { StudentDto } from "@/adapters/dtos/studentDto";
 import { IEmail } from "@/domain/core/interfaces/valueObejcts/email.interface";
@@ -8,6 +7,10 @@ import { FullName } from "@/domain/valueObjects/fullName";
 import { ICreateStudent } from "@/use-cases/interfaces/createStudent.interface";
 import { IActionResult } from "@/use-cases/models/action-result.interface";
 import { ActionResult } from "@/use-cases/models/action-result";
+
+
+
+//analysis => Check if is worth create a student global validation mathod for all vo's
 
 @Injectable()
 export class CreateStudentUseCase implements ICreateStudent {
@@ -24,6 +27,6 @@ export class CreateStudentUseCase implements ICreateStudent {
         if (emailValidation.isInvalid)
             return ActionResult.createBadRequest(false, emailValidation.message);
 
-        return ActionResult.create(true, String.Empty, studentDto);
+        return ActionResult.create(true, studentDto);
     }
 }

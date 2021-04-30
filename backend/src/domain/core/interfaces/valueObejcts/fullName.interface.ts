@@ -1,6 +1,5 @@
-import { IValidate } from "../validations/validate.interface";
-
-export interface IFullName extends IValidate {
+import { IValidationResult } from './../validations/validation-result.interface';
+export interface IFullName extends IValidationResult {
     readonly firstName: string;
     readonly lastName: string;
 }

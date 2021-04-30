@@ -1,25 +1,30 @@
 import { ValidationResult } from "../core/interfaces/validations/validation-result";
 import { IValidationResult } from "../core/interfaces/validations/validation-result.interface";
 import { IFullName } from "../core/interfaces/valueObejcts/fullName.interface";
+import { PropertieValidation } from "../validations/propertie-validation";
 
-export class FullName implements IFullName {
+export class FullName extends PropertieValidation implements IFullName {
     readonly firstName: string;
     readonly lastName: string;
 
-    private constructor(firstName: string, lastName: string) {
+    private constructor(firstName: string, lastName: string, objectValidation: IValidationResult) {
+
+        super(objectValidation.isValid, objectValidation.message);
+
         this.firstName = firstName;
         this.lastName = lastName;
         Object.freeze(this);
     }
 
     static create(firstName: string, lastName: string) {
-        return new FullName(firstName, lastName);
+
+        const validation = this.validate(firstName, lastName);
+        return new FullName(firstName, lastName, validation);
     }
 
-    validate(): IValidationResult {
+    private static validate(studentFirstName: string, studentLastName: string): IValidationResult {
+
         const numberNameTest = /^[0-9]+$/;
-        const studentFirstName = this.firstName;
-        const studentLastName = this.lastName;
         if (!studentFirstName || !studentLastName)
             return ValidationResult.create(false, 'The first name or last name cannot be empty ou null');
 

@@ -1,4 +1,13 @@
 export abstract class PropertieValidation {
-    public validationResult: boolean;
-    
+
+    isValid: boolean;
+    isInvalid: boolean;
+    message: string;
+
+    constructor(isValid: boolean, message: string) {
+        this.isValid = isValid;
+        this.isInvalid = !isValid;
+        this.message = message;
+    }
+
 }

@@ -1,3 +1,4 @@
+import { Password } from './../../../domain/valueObjects/password';
 import { Injectable } from "@nestjs/common";
 import { StudentDto } from "@/adapters/dtos/studentDto";
 import { IEmail } from "@/domain/core/interfaces/valueObejcts/email.interface";
@@ -16,16 +17,21 @@ import { ActionResult } from "@/use-cases/models/action-result";
 export class CreateStudentUseCase implements ICreateStudent {
 
     async createStudent(studentDto: StudentDto): Promise<IActionResult<StudentDto>> {
-        const studentName: IFullName = FullName.create(studentDto.firstName, studentDto.lastName);
 
-        const studentNameValidation = studentName.validate();
-        if (studentNameValidation.isInvalid)
-            return ActionResult.createBadRequest(false, studentNameValidation.message);
+        const studentName = FullName.create(studentDto.firstName, studentDto.lastName);
+
+        if (studentName.isInvalid)
+            return ActionResult.createBadRequest(false, studentName.message);
 
         const studentEmail: IEmail = Email.create(studentDto.email);
         const emailValidation = studentEmail.validate();
         if (emailValidation.isInvalid)
             return ActionResult.createBadRequest(false, emailValidation.message);
+
+        const password = Password.create(studentDto.password);
+        const passwordValidation = password.validate();
+        if (passwordValidation.isInvalid)
+            return ActionResult.createBadRequest(false, passwordValidation.message);
 
         return ActionResult.create(true, studentDto);
     }

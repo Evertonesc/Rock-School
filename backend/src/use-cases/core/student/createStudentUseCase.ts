@@ -2,7 +2,6 @@ import { Password } from './../../../domain/valueObjects/password';
 import { Injectable } from "@nestjs/common";
 import { StudentDto } from "@/adapters/dtos/studentDto";
 import { IEmail } from "@/domain/core/interfaces/valueObejcts/email.interface";
-import { IFullName } from "@/domain/core/interfaces/valueObejcts/fullName.interface";
 import { Email } from "@/domain/valueObjects/email";
 import { FullName } from "@/domain/valueObjects/fullName";
 import { ICreateStudent } from "@/use-cases/interfaces/createStudent.interface";
@@ -24,9 +23,8 @@ export class CreateStudentUseCase implements ICreateStudent {
             return ActionResult.createBadRequest(false, studentName.message);
 
         const studentEmail: IEmail = Email.create(studentDto.email);
-        const emailValidation = studentEmail.validate();
-        if (emailValidation.isInvalid)
-            return ActionResult.createBadRequest(false, emailValidation.message);
+        if (studentEmail.isInvalid)
+            return ActionResult.createBadRequest(false, studentEmail.message);
 
         const password = Password.create(studentDto.password);
         const passwordValidation = password.validate();

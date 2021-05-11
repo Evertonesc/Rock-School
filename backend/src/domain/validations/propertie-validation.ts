@@ -9,5 +9,4 @@ export abstract class PropertieValidation {
         this.isInvalid = !isValid;
         this.message = message;
     }
-
 }
